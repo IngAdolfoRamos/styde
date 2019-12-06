@@ -11,6 +11,7 @@ class WelcomeUsersTest extends TestCase
     /** @test */
     function show_welcome_users_with_nickname()
     {
+        $this->withoutExceptionHandling();
         $this->get('/saludo/adolfo/fofin')
             ->assertStatus(200)
             ->assertSee('Bienvenido Adolfo, tu nickname es fofin');
@@ -21,6 +22,6 @@ class WelcomeUsersTest extends TestCase
     {
         $this->get('/saludo/adolfo')
             ->assertStatus(200)
-            ->assertSee('Bienvenido Adolfo, aun no tienes un nickname');
+            ->assertSee('Bienvenido Adolfo');
     }
 }
